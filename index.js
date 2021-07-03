@@ -1,6 +1,7 @@
 const { fetchMyIP } = require('./iss');
 const { fetchCoordsByIP } = require('./iss');
-// manual non-assertion based test
+const { fetchISSFlyOverTimes } = require('./iss');
+
 fetchMyIP((error, ip) => {
   if (error) {
     console.log("It didn't work!" , error);
@@ -17,4 +18,13 @@ fetchCoordsByIP(myIP, (error, data) => {
     return;
   }
   console.log('It worked! Returned coordinates: ', data);
+});
+
+const myCoords = { latitude: '49.2311', longitude: '-122.956' };
+fetchISSFlyOverTimes(myCoords, (error, data) => {
+  if (error) {
+    console.log("It didn't work!" , error);
+    return;
+  }
+  console.log('It worked! Returned ISS pass times: ', data);
 });
