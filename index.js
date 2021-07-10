@@ -48,3 +48,5 @@ fetchISSFlyOverTimes(myCoords, (error, data) => {
   console.log('It worked! Returned ISS pass times: ', data);
 });
 */
+
+module.exports = { printPassTimes };
